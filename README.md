@@ -7,7 +7,7 @@ xscreensaver hacks.
 todos
 -----
 
-Provide todorunner.sh with an array of directories containing code you've written. 
+Provide todos.sh with some directories containing code you've written. 
 These will be searched recursively for source code files containing shameful tokens
 like **TODO**, **FIXME**, and **XXX**, and the corresponding lines will be printed.
 
