@@ -8,8 +8,14 @@ extflags=(\( -name '*.py' -o -name '*.sh' -o -name '*.bash' -o -name '*.java' -o
 todo_flags='TODO|FIXME|XXX|HACK'
 
 function echotodos {
-    grep -A 5 -H -E $todo_flags $1
-    echo # Insert a blank line to separate todos from different files
+    grepres=`grep -A 5 -E $todo_flags $1`
+    if ! [[ -z $grepres ]]
+    then
+        echo $1
+        echo
+        echo "$grepres"
+        echo
+    fi
 }
 
 if [[ $# -lt 1 ]]

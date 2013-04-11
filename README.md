@@ -14,7 +14,20 @@ like **TODO**, **FIXME**, and **XXX**, and the corresponding lines will be print
 I recommend being careful to avoid accidentally including directories containing 
 external libraries - this is meant to be a showcase of your *own* shortcomings.
 
-Source extensions and naughty words can be customized in todos.sh.
+Source extensions and naughty words can be customized in todos.sh. You may also 
+want to fiddle with the params passed to grep (for instance, you may want case
+insensivity, or more or fewer lines of context).
+
+The command to enter for the Program field in `screensaver-demo` is:
+
+    bash /<path>/<to>/todos.sh <sourcedirectory>...
+
+Alternatively, you might like to put a space-separated list of source directories
+in a file somewhere and use a command like
+
+    cat /<path>/<to>/mysources.txt | xargs bash /<path>/<to>/todos.sh
+
+(I really can't think of a better way to do this...)
 
 Requirements
 ============
@@ -30,14 +43,18 @@ text. To get some, try:
 
     apt-get install xscreensaver-data-extra xscreensaver-gl-extra
 
+todos likes to have the `rl` command...
+
+    apt-get install randomize-lines
+
+So that it can randomize the order of the directories it searches each time. 
+But it's not necessary.
+
 Usage
 =====
 
-Run xscreensaver-demo, click the 'advanced' tab, and under Text Manipulation -> Program enter
-
-    bash todorunner.sh
-
-Replacing `todorunner.sh` with the runner for whichever text generator you wish to use.
+Run xscreensaver-demo, click the 'advanced' tab, and under Text Manipulation -> Program,
+enter the command corresponding to the text generator you want to use.
 
 Now select an xscreensaver hack that uses text, such as StarWars or FlipText. These
 will paint the generated text across the screen in various interesting ways.
